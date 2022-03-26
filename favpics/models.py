@@ -27,6 +27,13 @@ class Image(models.Model):
     
     def save_image(self):
         self.save()
+        
+    @classmethod
+    def all_images(cls):
+        images = cls.objects.all()
+        
+        return images
+
 
 
 
