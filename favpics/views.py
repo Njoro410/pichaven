@@ -3,6 +3,6 @@ from .models import Image
 
 # Create your views here.
 def home(request):
-    name = 'Brian'
+    images = Image.all_images()
     
-    return render(request,'welcome.html', {'name': name})
+    return render(request,'welcome.html', {'images': images})
