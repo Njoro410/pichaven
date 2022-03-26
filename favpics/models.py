@@ -1,5 +1,3 @@
-from email.policy import default
-from hashlib import md5
 from django.db import models
 
 # Create your models here.
@@ -7,7 +5,9 @@ from django.db import models
 class Image(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
-    images = models.ImageField(upload_to='/pics', default='Image')
+    images = models.ImageField(upload_to='pics/', default='Image')
+    cat = models.ForeignKey(Category, on_delete=CASCADE)
+    location = models.ForeignKey(Location, on_delete=CASCADE)
     
     
 
