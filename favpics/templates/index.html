@@ -3,17 +3,49 @@
 
 {% block content %}
 
-{% for image in images %}
-{% if image.category.id == 1 %}
+<div class="container-fluid">
+    <div class="row" style="display: flex; flex-direction: row;">
+        <!-- <div class="col-sm-4" style="background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);">
 
-<img src="{{image.images.url}}" alt="">
-<p>{{image.name}}</p>
+        </div> -->
+        <div class="col-sm-12 images">
+            <!-- <div class=" row row-cols-1 row-cols-md-3 g-4"> -->
+            {% for image in images %}
+            <div class="col-md-3 col-sm-4 col-lg-3">
 
-{% else %}
-<p>no images from that category</p>
-{% endif %}
+
+                {% if image.category.id == 1 %}
+      
+                    <img src="{{image.images.url}}" class="rounded" alt="{{image.name}}">
+          
+                {% else %}
+                <p>no images from that category</p>
+                {% endif %}
 
 
-{% endfor %}
+            </div>
+            {% endfor %}
+            <!-- </div> -->
+
+        </div>
+    </div>
+</div>
+<style>
+
+    .images {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    img {
+        float: left;
+        width: 95%;
+        height: 95%;
+        object-fit:cover;
+    
+    }
+</style>
+
 
 {% endblock %}
