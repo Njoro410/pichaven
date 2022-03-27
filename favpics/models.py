@@ -31,7 +31,8 @@ class Image(models.Model):
     def delete_image(self, id):
         self.objects.filter(id=id).delete()
         
-    
+    def update_image(self, id,name):
+        self.objects.filter(id=id).update(name = name)
         
     @classmethod
     def all_images(cls):
