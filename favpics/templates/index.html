@@ -7,7 +7,14 @@
         <div class="col-sm-12">
             <p><span id="hey">Heeey, this is Pics Haven, a photo gallery that will leave you amazed</span></p>
             <p>scroll down to uplift your mood</p>
-
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Enter Category" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -79,13 +86,11 @@
                     <div class="col-md-3 col-sm-4 col-lg-3">
 
 
-                        {% if image.category.id == 1 %}
+                      
+                        <a href=""><img src="{{image.images.url}}" class="rounded" alt="{{image.name}}"></a>
 
-                        <img src="{{image.images.url}}" class="rounded" alt="{{image.name}}">
 
-                        {% else %}
-                        <p>no images from that category</p>
-                        {% endif %}
+                    
 
 
                     </div>
