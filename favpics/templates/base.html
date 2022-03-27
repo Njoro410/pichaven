@@ -1,16 +1,54 @@
+{# Load the tag library #} {% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %} {% endblock %}
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %} {% endblock %} {# Load CSS and JavaScript #} 
+    {%bootstrap_css %} 
+  </head>
+  <body>
+    {# Display django.contrib.messages as Bootstrap alerts #} 
+    {%bootstrap_messages %}
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Pics Haven</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              name="query"
+              id="search"
+              type="search"
+              placeholder="Enter Category"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search Image
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
 
-
-    
     {% block content %} {% endblock %}
-    
-</body>
+    {% bootstrap_javascript %}
+  </body>
 </html>
