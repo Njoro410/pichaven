@@ -43,6 +43,12 @@ class Image(models.Model):
     def get_single_image(cls,id):
         image = cls.objects.get(id=id)
         return image
+    
+    @classmethod
+    def search_by_category(cls, category_name):
+        image = cls.objects.filter(category_name = category_name)
+        return image
+        
         
 
 
