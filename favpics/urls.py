@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     path('',views.home),
-    path('location/<str:location>/',views.location, name='location')
+    path('location/<str:location>/',views.location, name='location'),
+    path('search/',views.search, name='search_image')
 ]
 
 if settings.DEBUG:
