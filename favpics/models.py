@@ -38,6 +38,12 @@ class Image(models.Model):
     def all_images(cls):
         images = cls.objects.all()
         return images
+    
+    @classmethod
+    def get_single_image(cls,id):
+        image = cls.objects.get(id=id)
+        return image
+        
 
 
 
