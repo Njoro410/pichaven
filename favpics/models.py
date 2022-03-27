@@ -28,6 +28,11 @@ class Image(models.Model):
     def save_image(self):
         self.save()
         
+    def delete_image(self, id):
+        self.objects.filter(id=id).delete()
+        
+    
+        
     @classmethod
     def all_images(cls):
         images = cls.objects.all()
