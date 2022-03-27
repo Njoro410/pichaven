@@ -81,17 +81,50 @@
                         </div> -->
                     </div>
                 </div>
-                
+
                 <div class="col-sm-12 ">
                     <div class="container images"
                         data-masonry='{ "itemSelector": ".picha", "columnWidth": 5, "fitWidth": true }'>
                         {% for image in images %}
                         <div class="col-md-3 col-sm-3 col-lg-3 picha">
-                            <a href=""><img src="{{image.images.url}}" class="rounded" alt="{{image.name}}"></a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#pic{{image.id}}"><img
+                                    src="{{image.images.url}}" class="rounded" alt="{{image.name}}"></a>
                         </div>
+                        <!-- Modal -->
+
+                        <div class="modal" id="pic{{image.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{image.name}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container m">
+                                            <img src="{{image.images.url}}" alt="{{image.name}}" class="modal-image">
+                                            <div class="overlay">
+                                                <h4>{{image.name}}</h4>
+                                                <p>{{image.description}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {% endfor %}
                     </div>
                 </div>
+
+
 
             </div>
         </div>
@@ -111,6 +144,52 @@
         margin: 5px;
         object-fit: cover;
 
+    }
+
+    .modal-image {
+        height: auto;
+        width: 700px;
+        background-size: cover;
+        /* overflow: hidden; */
+        display: block;
+    }
+
+    .modal-content {
+        margin: auto;
+        width: 700px;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .modal-header,
+    .modal-footer {
+        display: none;
+    }
+
+    .m {
+        position: relative;
+
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        background: rgb(0, 0, 0);
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 100%;
+        transition: .5s ease;
+        opacity: 0;
+        color: white;
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .m:hover .overlay {
+        opacity: 1;
     }
 
     .rounded:hover {
