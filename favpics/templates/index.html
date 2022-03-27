@@ -11,7 +11,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <form class="d-flex" role="search" action="{% url 'search_image' %}">
-                    <input class="form-control me-2" type="search" name="category" placeholder="Enter Category" aria-label="Search">
+                    <input class="form-control me-2" type="search" name="category" placeholder="Enter Category"
+                        aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -42,7 +43,7 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -77,24 +78,19 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                <br>
-                <div class="col-sm-12 images">
-                    {% for image in images %}
-                    <div class="col-md-3 col-sm-4 col-lg-3">
-
-
-                      
-                        <a href=""><img src="{{image.images.url}}" class="rounded" alt="{{image.name}}"></a>
-
-
-                    
-
-
+                
+                <div class="col-sm-12 ">
+                    <div class="container images"
+                        data-masonry='{ "itemSelector": ".picha", "columnWidth": 5, "fitWidth": true }'>
+                        {% for image in images %}
+                        <div class="col-md-3 col-sm-3 col-lg-3 picha">
+                            <a href=""><img src="{{image.images.url}}" class="rounded" alt="{{image.name}}"></a>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
 
             </div>
@@ -105,17 +101,21 @@
 
 <style>
     .images {
-        /* margin-top: 100px; */
-        display: flex;
-        flex-direction: row;
+        max-width: 1080px;
     }
 
-
     .rounded {
-        float: left;
+        /* float: left; */
         width: 95%;
         height: 95%;
+        margin: 5px;
         object-fit: cover;
+
+    }
+
+    .rounded:hover {
+        transform: scale(1.1);
+        transition: all .5s;
 
     }
 
