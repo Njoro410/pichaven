@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for image in images %}
+{% if image.category.id == 1 %}
+
+<img src="{{image.images.url}}" alt="">
+<p>{{image.name}}</p>
+
+{% else %}
+<p>no images from that category</p>
+{% endif %}
+
+
+{% endfor %}
+
+{% endblock %}
