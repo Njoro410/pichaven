@@ -6,7 +6,7 @@ A gallery application that lists images from different categories taken in diffe
 
 ## Live Link
 
-
+- https://picshaven.herokuapp.com/
 
 ## Authors
 
@@ -17,6 +17,10 @@ A gallery application that lists images from different categories taken in diffe
 
 - View different pictures
 - Copy image link urls
+
+## Known Bugs
+
+-  pyperclip does not work in heroku, hence copy image url does not work. Runs ok locally though
 
 
 
@@ -74,10 +78,5 @@ python3 manage.py test
 If you have any feedback, please reach out to me at briannjoroge420@gmail.com
 
 
-## Features
-
-- View various news sources around the world
-- View top trending headlines
-- View top headlines per source
 
 
