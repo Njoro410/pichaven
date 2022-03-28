@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+
+import django
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +28,8 @@ SECRET_KEY = 'django-insecure-6u4t5+b+nw6&+8@d$pb=r(9cx8&cq&8ara#7hh5+#o@t0*3v34
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['picshaven.herokuapp.com']
 
 
 # Application definition
@@ -76,12 +80,23 @@ WSGI_APPLICATION = 'picshaven.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME':'picshaven',
+#         'USER':'brian',
+#         'PASSWORD':'12345',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'picshaven',
-        'USER':'brian',
-        'PASSWORD':'12345',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'dbta59hebbgbll',
+        'USER':'iosiynagysiquu',
+        'PASSWORD':'d6c9bfd870162a520b4de5403adfe7ffc7af0eef2f01e634482d69275c92b04e',
+        'HOST':'ec2-52-21-136-176.compute-1.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
@@ -126,6 +141,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
