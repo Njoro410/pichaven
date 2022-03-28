@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
 
 {% block content %}
 <div class="container" style="margin-top: 100px;">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 text">
             <p><span id="hey">Heeey, this is Pics Haven, a photo gallery that will leave you amazed</span></p>
             <p>scroll down to uplift your mood</p>
         </div>
@@ -20,18 +20,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <ul class="nav justify-content-center">
+                    {% for location in images %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'location' location='Egypt' %}">Egypt</a>
+                        <a class="nav-link" href="{% url 'location' location.location.name %}">{{location.location.name}}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">U.K</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">U.S</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">China</a>
-                    </li>
+                    
+                    {% endfor %}
                 </ul>
 
             </div>
@@ -132,79 +126,6 @@
 
 </div>
 
-<style>
-    .images {
-        max-width: 1080px;
-    }
-
-    .rounded {
-        /* float: left; */
-        width: 95%;
-        height: 95%;
-        margin: 5px;
-        object-fit: cover;
-
-    }
-
-    .modal-image {
-        height: auto;
-        width: 700px;
-        background-size: cover;
-        /* overflow: hidden; */
-        display: block;
-    }
-
-    .modal-content {
-        margin: auto;
-        width: 700px;
-    }
-
-    .modal-body {
-        padding: 0;
-    }
-
-    .modal-header,
-    .modal-footer {
-        display: none;
-    }
-
-    .m {
-        position: relative;
-
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        background: rgb(0, 0, 0);
-        background: rgba(0, 0, 0, 0.5);
-        color: #f1f1f1;
-        width: 100%;
-        transition: .5s ease;
-        opacity: 0;
-        color: white;
-        font-size: 20px;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .m:hover .overlay {
-        opacity: 1;
-    }
-
-    .rounded:hover {
-        transform: scale(1.1);
-        transition: all .5s;
-
-    }
-
-    .col-sm-12 p {
-        text-align: center;
-        font-weight: 900;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-    }
-</style>
 
 
 {% endblock %}
