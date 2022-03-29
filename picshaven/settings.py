@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 import django
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +34,13 @@ DEBUG = True
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['picshaven.herokuapp.com']
 
+#cloudinary config
+cloudinary.config( 
+  cloud_name = "dn6zkeb6i", 
+  api_key = "824151859578476", 
+  api_secret = "I8NNshAJn-Ge5wFoAyTzemF3nW4" 
+)
+
 
 # Application definition
 
@@ -43,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'favpics.apps.FavpicsConfig',
     'bootstrap5',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
